@@ -1,3 +1,10 @@
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import plotly.io as pio
+
+
 # Set default renderer to "browser"
 pio.renderers.default = "browser"
 
@@ -35,7 +42,6 @@ bar_trace = go.Bar(
 )
 fig.add_trace(bar_trace, row=1, col=2)
 
-# Update Layout Settings
 fig.update_layout(
     mapbox=dict(
         style="open-street-map",

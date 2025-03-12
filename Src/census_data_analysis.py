@@ -4,6 +4,9 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import plotly.io as pio
 
+# Load the CSV file using the appropriate encoding
+census_data = pd.read_csv("/MTL/98-401-X2021020_English_CSV_data.csv", encoding='latin1')
+
 # Display the first few rows to identify relevant columns
 print("Raw Census Data:")
 print(census_data.head())
@@ -28,16 +31,9 @@ if 'GEO_NAME' in census_pivot.columns:
 print("\nCleaned and Pivoted Census Data:")
 print(census_pivot.head())
 
-# Load cleaned POI data
-poi = pd.read_csv('/Users/FATEMEH/Desktop/POI_cleaned.csv')
 
-# Now, aggregate your POI data by arrondissement
-aggregated_data = poi.groupby('Arrondissement').agg({'ID': 'count'}).rename(
-    columns={'ID': 'Establishment_Count'}
-).reset_index()
-
-print("\nAggregated POI Data:")
-print(aggregated_data.head())
+# Aggregate POI data by arrondissement
+aggregated_data = poi.groupby('Arrondissement').agg({'ID': 'count'}).rename(columns={'ID': 'Establishment_Count'}).reset_index()
 
 # Merge the aggregated POI data with the cleaned census data
 merged_data = aggregated_data.merge(census_pivot, on="Arrondissement", how="left")

@@ -1,3 +1,6 @@
+
+
+
 # Identify relevant columns in census data
 required_columns = ['GEO_NAME', 'CHARACTERISTIC_NAME', 'TNR_SF']
 
