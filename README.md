@@ -52,7 +52,7 @@ We created interactive visualizations using Plotly:
 
 ## Conclusion
 
-This project provides a comprehensive analysis and visualization of POIs in Montreal, along with insights from the census data. The techniques used include data cleaning, EDA, geospatial analysis with Folium, clustering with KMeans and DBSCAN, and interactive visualizations with Plotly. The insights derived can be useful for urban planning, tourism, and community development.
+This project provides an analysis and visualization of POIs in Montreal, along with insights from the census data. The techniques used include data cleaning, EDA, geospatial analysis with Folium, clustering with KMeans and DBSCAN, and interactive visualizations with Plotly. The insights derived can be useful for urban planning, tourism, and community development.
 
 ## Repository Structure
 
