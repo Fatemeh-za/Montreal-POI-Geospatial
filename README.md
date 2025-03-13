@@ -25,7 +25,7 @@ We created an interactive map using Folium to visualize the distribution of POIs
 ### Heatmap
 
 We created a heatmap to identify areas with high POI concentration:
-- [Heatmap](Resullt/poi_heatmap.html)
+- [Heatmap](Resullt/poi heatmap.html)
 
 ### Cluster Analysis
 
