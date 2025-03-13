@@ -20,29 +20,29 @@ We conducted exploratory data analysis to understand the distribution of POIs:
 
 We created an interactive map using Folium to visualize the distribution of POIs:
 - Markers were added for each POI, with different colors representing different families.
-- [Interactive Map](Results/montreal_establishments.html)
+- [Interactive Map](Result/montreal_establishments.html)
 
 ### Heatmap
 
 We created a heatmap to identify areas with high POI concentration:
-- [Heatmap](Results/poi_heatmap.html)
+- [Heatmap](Result/poi_heatmap.html)
 
 ### Cluster Analysis
 
 We applied KMeans and DBSCAN clustering to categorize the POIs and visualized the clusters:
-- **KMeans Clustering Map:** [Clusters Map](Results/montreal_clusters.html)
+- **KMeans Clustering Map:** [Clusters Map](Result/montreal_clusters.html)
 
 ### Choropleth Map
 
 We created a choropleth map to show the establishment count by arrondissement:
-- [Choropleth Map](Results/visualizations/choropleth_map.png)
+- [Choropleth Map](Result/visualizations/choropleth_map.png)
 
 ## Interactive Visualizations with Plotly
 
 We created interactive visualizations using Plotly:
 - **Combined Plot:** An interactive map of establishments and a bar chart of classification counts.
 - **Kernel Density Estimation:** Visualizes the density of establishments.
-- [Interactive Combined Plot](Results/interactive_visualizations.html)
+- [Interactive Combined Plot](Result/interactive_visualizations.html)
 
 ## Key Insights
 
