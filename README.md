@@ -80,7 +80,6 @@ Spatial autocorrelation measures whether the distribution of POI counts across g
 - **Demographic Correlations**: Merging POI data with census statistics unveiled correlations between borough characteristics (e.g., population, income levels) and the presence of certain types of establishments.
 
 
-### Key Insights
 - **Geospatial Clustering**: High-density clusters of recreational and cultural POIs were found in specific boroughs.
 - **Spatial Patterns**: Moran's I revealed weak spatial autocorrelation, suggesting POI distributions were largely random.
 - **Demographic Correlations**: Analysis with census data uncovered socioeconomic trends influencing POI distributions.
