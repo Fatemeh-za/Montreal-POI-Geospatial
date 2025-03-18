@@ -20,7 +20,7 @@ We conducted exploratory data analysis to understand the distribution of POIs:
 
 We created an interactive map using Folium to visualize the distribution of POIs:
 - Markers were added for each POI, with different colors representing different families.
-- [Interactive Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/Resullt/montreal_establishments.html)
+- [Interactive Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Resullt/montreal_establishments.html)
 
 ### Heatmap
 
