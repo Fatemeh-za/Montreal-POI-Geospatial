@@ -70,6 +70,8 @@ Spatial autocorrelation measures whether the distribution of POI counts across g
 
 ## Results
 
+## Results
+
 ### Key Insights
 - **Geospatial Clustering**: High-density clusters of recreational and cultural POIs were found in specific boroughs, highlighting the central hubs of these activities.
 - **Spatial Patterns**:
@@ -79,10 +81,6 @@ Spatial autocorrelation measures whether the distribution of POI counts across g
 - **Kernel Density Estimation**: Density maps revealed key areas with high concentrations of POIs, especially around downtown and more populous boroughs.
 - **Demographic Correlations**: Merging POI data with census statistics unveiled correlations between borough characteristics (e.g., population, income levels) and the presence of certain types of establishments.
 
-
-- **Geospatial Clustering**: High-density clusters of recreational and cultural POIs were found in specific boroughs.
-- **Spatial Patterns**: Moran's I revealed weak spatial autocorrelation, suggesting POI distributions were largely random.
-- **Demographic Correlations**: Analysis with census data uncovered socioeconomic trends influencing POI distributions.
 
 
 
