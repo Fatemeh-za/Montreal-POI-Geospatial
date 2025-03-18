@@ -1,53 +1,89 @@
 # Montreal POI Geospatial Analysis
 
-## Introduction
+## Project Overview
 
-This project analyzes and visualizes the Points of Interest (POI) in Montreal. It covers various steps including data preparation, exploratory data analysis (EDA), geospatial visualizations, clustering, and interactive visualizations. Census data is also integrated to provide deeper insights.
+This project focuses on analyzing and visualizing Points of Interest (POI) in Montreal using geospatial, statistical, and exploratory data analysis techniques. The analysis includes data preparation, geospatial visualizations, clustering, interactive maps, and integration of census data for deeper insights. Key outputs include heatmaps, choropleth maps, clustering visualizations, and spatial autocorrelation metrics.
 
-## Data Loading and Preparation
+---
 
-- Loaded and cleaned POI and census data from CSV files.
-- Handled missing values and duplicates.
-- Aggregated POI data by arrondissement and merged it with census data.
+## Data Description
 
-## Exploratory Data Analysis (EDA)
+### POI Dataset
+- **File**: `POI.csv`
+- **Description**: Contains detailed information on Points of Interest in Montreal, such as names, categories, locations, and boroughs.
+- **Columns and Data Types**:
+  - `ID` *(int)*: Unique identifier for each POI.
+  - `Famille` *(str)*: Family of POIs (e.g., Cultural, Commercial).
+  - `Catégorie` *(str)*: Specific POI category.
+  - `Nom français` *(str)*: Name of the POI in French.
+  - `Longitude`, `Latitude` *(float)*: Geographic coordinates of the POI.
+  - `Arrondissement` *(str)*: Borough of the POI.
+  - `Classification` *(str)*: Classification level (numeric).
+  - 
+### Geospatial Data
+- **File**: `limites-administratives-agglomeration-nad83.shp`
+- **Description**: Shapefile representing the administrative boundaries of Montreal’s boroughs.
 
-- Conducted frequency analysis for POIs by family, category, and arrondissement.
-- Visualized geospatial distribution with scatter plots.
+### Census Data
+- **File**: `98-401-X2021020_English_CSV_data.csv`
+- **Description**: Census data providing demographic and socioeconomic statistics for Montreal boroughs.
+- **Columns and Data Types**:
+  - `GEO_NAME` *(str)*: Geographic name of the borough.
+  - `CHARACTERISTIC_NAME` *(str)*: Census characteristic (e.g., population).
+  - `TNR_SF` *(float)*: Statistical measure of the characteristic.
 
-## Geospatial Visualization
 
-### Folium Interactive Map
-An interactive map visualizing POI distributions with markers color-coded by family.  
-[View Interactive Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Results/montreal_establishments.html)
+---
 
-### Heatmap
-Identified areas with high POI density.  
-[View Heatmap](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Results/POI%20Heatmap.html)
+## Methods and Techniques
 
-### Cluster Analysis
-Applied KMeans and DBSCAN clustering techniques to categorize and visualize POI clusters.  
-[View Clusters Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Results/montreal_clusters.html)
+### Data Cleaning and Preprocessing
+- Dropped irrelevant columns with excessive missing values.
+- Handled missing values by imputing with appropriate replacements.
+- Removed duplicate entries to ensure data quality.
 
-### Choropleth Map
-A choropleth map showing establishment counts by arrondissement.  
-![Choropleth Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Results/visualizations/choropleth_map.png)
+### Exploratory Data Analysis (EDA)
+- Analyzed frequency counts of POIs by family, category, and borough.
+- Visualized distributions using scatter plots and count plots.
 
-## Interactive Visualizations with Plotly
+### Geospatial Analysis
+- Generated static and interactive maps:
+  - Interactive Folium map showing POIs by category.
+  - Heatmap identifying areas with high POI densities.
+  - Choropleth map displaying the establishment count by boroughs.
 
-- **Combined Plot**: Includes an interactive map of establishments and a bar chart of classification counts.
-- **Kernel Density Estimation**: Visualizes the density of POIs in Montreal.  
-[View Combined Plot](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Results/interactive_visualizations.html)
+### Clustering
+- Applied **KMeans** clustering to group POIs based on geographic coordinates.
+- Created an interactive cluster map with markers color-coded for each cluster.
 
-## Key Insights
+### Spatial Autocorrelation
+Spatial autocorrelation measures whether the distribution of POI counts across geographic areas is random, clustered, or dispersed.
 
-- **Geospatial Clustering**: Revealed clusters of establishments, highlighting areas with specific POI densities.
-- **Census Data Integration**: Correlations between census data and POI distributions were uncovered.
-- **POI Distribution**: Patterns of recreational and cultural establishments were observed across different arrondissements.
+- **Moran's I**: A statistical metric used to determine spatial autocorrelation. It ranges between -1 and 1:
+  - Positive values near 1 indicate clustering (similar values are close together).
+  - Negative values near -1 indicate dispersion (dissimilar values are close together).
+  - Values near 0 suggest a random distribution.
+- **libpysal**: A Python library used to calculate spatial weights, which define relationships between areas based on shared boundaries or distances.
+- **esda**: A Python library specifically for Exploratory Spatial Data Analysis, including Moran's I and other spatial metrics.
 
-## Conclusion
+---
 
-This analysis delivers insights into Montreal’s POI landscape, integrating census data for a comprehensive view. It supports urban planning, tourism, and community development by providing actionable geospatial insights.
+## Results
 
-## Repository Structure
+### Key Insights
+- **Geospatial Clustering**: High-density clusters of recreational and cultural POIs were found in specific boroughs, highlighting the central hubs of these activities.
+- **Spatial Patterns**:
+  - Moran's I value: **0.0428**
+  - p-value: **0.116**
+  - These results suggest **weak spatial clustering** in the distribution of establishment counts across Montreal's boroughs. The p-value indicates that the spatial pattern observed is not statistically significant at a 95% confidence level.
+- **Kernel Density Estimation**: Density maps revealed key areas with high concentrations of POIs, especially around downtown and more populous boroughs.
+- **Demographic Correlations**: Merging POI data with census statistics unveiled correlations between borough characteristics (e.g., population, income levels) and the presence of certain types of establishments.
+
+
+### Key Insights
+- **Geospatial Clustering**: High-density clusters of recreational and cultural POIs were found in specific boroughs.
+- **Spatial Patterns**: Moran's I revealed weak spatial autocorrelation, suggesting POI distributions were largely random.
+- **Demographic Correlations**: Analysis with census data uncovered socioeconomic trends influencing POI distributions.
+
+
 
