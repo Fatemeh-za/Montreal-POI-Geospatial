@@ -2,70 +2,52 @@
 
 ## Introduction
 
-This project aims to analyze and visualize the Points of Interest (POI) in Montreal. The analysis includes data loading, cleaning, exploratory data analysis (EDA), geospatial visualizations, clustering, and interactive visualizations. Additionally, we integrate and analyze census data to provide further insights.
+This project analyzes and visualizes the Points of Interest (POI) in Montreal. It covers various steps including data preparation, exploratory data analysis (EDA), geospatial visualizations, clustering, and interactive visualizations. Census data is also integrated to provide deeper insights.
 
 ## Data Loading and Preparation
 
-We loaded the POI and census data from CSV files, cleaned them, and handled missing values and duplicates. We aggregated POI data by arrondissement and merged it with the cleaned census data.
+- Loaded and cleaned POI and census data from CSV files.
+- Handled missing values and duplicates.
+- Aggregated POI data by arrondissement and merged it with census data.
 
 ## Exploratory Data Analysis (EDA)
 
-We conducted exploratory data analysis to understand the distribution of POIs:
-- **Count of POIs by Family, Category, and Arrondissement**
-- **Geospatial Distribution:** A scatterplot showed the distribution of POIs across Montreal by their families.
+- Conducted frequency analysis for POIs by family, category, and arrondissement.
+- Visualized geospatial distribution with scatter plots.
 
 ## Geospatial Visualization
 
 ### Folium Interactive Map
-
-We created an interactive map using Folium to visualize the distribution of POIs:
-- Markers were added for each POI, with different colors representing different families.
-- [Interactive Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Resullt/montreal_establishments.html)
+An interactive map visualizing POI distributions with markers color-coded by family.  
+[View Interactive Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Results/montreal_establishments.html)
 
 ### Heatmap
-
-We created a heatmap to identify areas with high POI concentration:
-- [Heatmap]([Resullt/poi heatmap.html](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Resullt/POI%20Heatmap.html))
+Identified areas with high POI density.  
+[View Heatmap](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Results/POI%20Heatmap.html)
 
 ### Cluster Analysis
-
-We applied KMeans and DBSCAN clustering to categorize the POIs and visualized the clusters:
-- **KMeans Clustering Map:** [Clusters Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/Resullt/montreal_clusters.html)
+Applied KMeans and DBSCAN clustering techniques to categorize and visualize POI clusters.  
+[View Clusters Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Results/montreal_clusters.html)
 
 ### Choropleth Map
-
-We created a choropleth map to show the establishment count by arrondissement:
-- [Choropleth Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/Resullt/visualizations/choropleth_map.png)
+A choropleth map showing establishment counts by arrondissement.  
+![Choropleth Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Results/visualizations/choropleth_map.png)
 
 ## Interactive Visualizations with Plotly
 
-We created interactive visualizations using Plotly:
-- **Combined Plot:** An interactive map of establishments and a bar chart of classification counts.
-- **Kernel Density Estimation:** Visualizes the density of establishments.
-- [Interactive Combined Plot](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/Resullt/interactive_visualizations.html)
+- **Combined Plot**: Includes an interactive map of establishments and a bar chart of classification counts.
+- **Kernel Density Estimation**: Visualizes the density of POIs in Montreal.  
+[View Combined Plot](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/blob/main/Results/interactive_visualizations.html)
 
 ## Key Insights
 
-- **Geospatial Clustering:** The clustering analysis revealed distinct clusters of POIs, indicating areas with a high concentration of certain types of establishments.
-- **POI Distribution:** The scatterplot and interactive map showed that recreational and cultural POIs are densely clustered in specific areas of Montreal.
-- **Census Data Integration:** The analysis of census data uncovered new trends and correlations that complement the POI data.
+- **Geospatial Clustering**: Revealed clusters of establishments, highlighting areas with specific POI densities.
+- **Census Data Integration**: Correlations between census data and POI distributions were uncovered.
+- **POI Distribution**: Patterns of recreational and cultural establishments were observed across different arrondissements.
 
 ## Conclusion
 
-This project provides an analysis and visualization of POIs in Montreal, along with insights from the census data. The techniques used include data cleaning, EDA, geospatial analysis with Folium, clustering with KMeans and DBSCAN, and interactive visualizations with Plotly. The insights derived can be useful for urban planning, tourism, and community development.
+This analysis delivers insights into Montreal’s POI landscape, integrating census data for a comprehensive view. It supports urban planning, tourism, and community development by providing actionable geospatial insights.
 
 ## Repository Structure
 
-- **data/**: Directory containing the raw data files (POI.csv and census data CSV).
-- **notebooks/**: Jupyter Notebooks for different stages of the analysis.
-- **scripts/**: Python scripts for data cleaning, EDA, geospatial analysis, clustering, and visualizations.
-- **results/**: Directory containing the results, including HTML maps and visualizations.
-- **README.md**: This file.
-- **requirements.txt**: List of required Python packages.
-
-## Requirements
-
-To install the required Python packages, use:
-
-```sh
-pip install -r requirements.txt
