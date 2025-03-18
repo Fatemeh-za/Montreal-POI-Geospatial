@@ -1,71 +1,89 @@
 # Montreal POI Geospatial Analysis
 
-## Introduction
+## Project Overview
 
-This project aims to analyze and visualize the Points of Interest (POI) in Montreal. The analysis includes data loading, cleaning, exploratory data analysis (EDA), geospatial visualizations, clustering, and interactive visualizations. Additionally, we integrate and analyze census data to provide further insights.
+This project focuses on analyzing and visualizing Points of Interest (POI) in Montreal using geospatial, statistical, and exploratory data analysis techniques. The analysis includes data preparation, geospatial visualizations, clustering, interactive maps, and integration of census data for deeper insights. Key outputs include heatmaps, choropleth maps, clustering visualizations, and spatial autocorrelation metrics.
 
-## Data Loading and Preparation
+---
 
-We loaded the POI and census data from CSV files, cleaned them, and handled missing values and duplicates. We aggregated POI data by arrondissement and merged it with the cleaned census data.
+## Data Description
 
-## Exploratory Data Analysis (EDA)
+### POI Dataset
+- **File**: `POI.csv`
+- **Description**: Contains detailed information on Points of Interest in Montreal, such as names, categories, locations, and boroughs.
+- **Columns and Data Types**:
+  - `ID` *(int)*: Unique identifier for each POI.
+  - `Famille` *(str)*: Family of POIs (e.g., Cultural, Commercial).
+  - `Catégorie` *(str)*: Specific POI category.
+  - `Nom français` *(str)*: Name of the POI in French.
+  - `Longitude`, `Latitude` *(float)*: Geographic coordinates of the POI.
+  - `Arrondissement` *(str)*: Borough of the POI.
+  - `Classification` *(str)*: Classification level (numeric).
+  - 
+### Geospatial Data
+- **File**: `limites-administratives-agglomeration-nad83.shp`
+- **Description**: Shapefile representing the administrative boundaries of Montreal’s boroughs.
 
-We conducted exploratory data analysis to understand the distribution of POIs:
-- **Count of POIs by Family, Category, and Arrondissement**
-- **Geospatial Distribution:** A scatterplot showed the distribution of POIs across Montreal by their families.
+### Census Data
+- **File**: `98-401-X2021020_English_CSV_data.csv`
+- **Description**: Census data providing demographic and socioeconomic statistics for Montreal boroughs.
+- **Columns and Data Types**:
+  - `GEO_NAME` *(str)*: Geographic name of the borough.
+  - `CHARACTERISTIC_NAME` *(str)*: Census characteristic (e.g., population).
+  - `TNR_SF` *(float)*: Statistical measure of the characteristic.
 
-## Geospatial Visualization
 
-### Folium Interactive Map
+---
 
-We created an interactive map using Folium to visualize the distribution of POIs:
-- Markers were added for each POI, with different colors representing different families.
-- [Interactive Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/Resullt/montreal_establishments.html)
+## Methods and Techniques
 
-### Heatmap
+### Data Cleaning and Preprocessing
+- Dropped irrelevant columns with excessive missing values.
+- Handled missing values by imputing with appropriate replacements.
+- Removed duplicate entries to ensure data quality.
 
-We created a heatmap to identify areas with high POI concentration:
-- [Heatmap](Resullt/poi heatmap.html)
+### Exploratory Data Analysis (EDA)
+- Analyzed frequency counts of POIs by family, category, and borough.
+- Visualized distributions using scatter plots and count plots.
 
-### Cluster Analysis
+### Geospatial Analysis
+- Generated static and interactive maps:
+  - Interactive Folium map showing POIs by category.
+  - Heatmap identifying areas with high POI densities.
+  - Choropleth map displaying the establishment count by boroughs.
 
-We applied KMeans and DBSCAN clustering to categorize the POIs and visualized the clusters:
-- **KMeans Clustering Map:** [Clusters Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/Resullt/montreal_clusters.html)
+### Clustering
+- Applied **KMeans** clustering to group POIs based on geographic coordinates.
+- Created an interactive cluster map with markers color-coded for each cluster.
 
-### Choropleth Map
+### Spatial Autocorrelation
+Spatial autocorrelation measures whether the distribution of POI counts across geographic areas is random, clustered, or dispersed.
 
-We created a choropleth map to show the establishment count by arrondissement:
-- [Choropleth Map](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/Resullt/visualizations/choropleth_map.png)
+- **Moran's I**: A statistical metric used to determine spatial autocorrelation. It ranges between -1 and 1:
+  - Positive values near 1 indicate clustering (similar values are close together).
+  - Negative values near -1 indicate dispersion (dissimilar values are close together).
+  - Values near 0 suggest a random distribution.
+- **libpysal**: A Python library used to calculate spatial weights, which define relationships between areas based on shared boundaries or distances.
+- **esda**: A Python library specifically for Exploratory Spatial Data Analysis, including Moran's I and other spatial metrics.
 
-## Interactive Visualizations with Plotly
+---
 
-We created interactive visualizations using Plotly:
-- **Combined Plot:** An interactive map of establishments and a bar chart of classification counts.
-- **Kernel Density Estimation:** Visualizes the density of establishments.
-- [Interactive Combined Plot](https://github.com/Fatemeh-za/Montreal-POI-Geospatial/Resullt/interactive_visualizations.html)
+## Results
 
-## Key Insights
+### Key Insights
+- **Geospatial Clustering**: High-density clusters of recreational and cultural POIs were found in specific boroughs, highlighting the central hubs of these activities.
+- **Spatial Patterns**:
+  - Moran's I value: **0.0428**
+  - p-value: **0.116**
+  - These results suggest **weak spatial clustering** in the distribution of establishment counts across Montreal's boroughs. The p-value indicates that the spatial pattern observed is not statistically significant at a 95% confidence level.
+- **Kernel Density Estimation**: Density maps revealed key areas with high concentrations of POIs, especially around downtown and more populous boroughs.
+- **Demographic Correlations**: Merging POI data with census statistics unveiled correlations between borough characteristics (e.g., population, income levels) and the presence of certain types of establishments.
 
-- **Geospatial Clustering:** The clustering analysis revealed distinct clusters of POIs, indicating areas with a high concentration of certain types of establishments.
-- **POI Distribution:** The scatterplot and interactive map showed that recreational and cultural POIs are densely clustered in specific areas of Montreal.
-- **Census Data Integration:** The analysis of census data uncovered new trends and correlations that complement the POI data.
 
-## Conclusion
+### Key Insights
+- **Geospatial Clustering**: High-density clusters of recreational and cultural POIs were found in specific boroughs.
+- **Spatial Patterns**: Moran's I revealed weak spatial autocorrelation, suggesting POI distributions were largely random.
+- **Demographic Correlations**: Analysis with census data uncovered socioeconomic trends influencing POI distributions.
 
-This project provides an analysis and visualization of POIs in Montreal, along with insights from the census data. The techniques used include data cleaning, EDA, geospatial analysis with Folium, clustering with KMeans and DBSCAN, and interactive visualizations with Plotly. The insights derived can be useful for urban planning, tourism, and community development.
 
-## Repository Structure
 
-- **data/**: Directory containing the raw data files (POI.csv and census data CSV).
-- **notebooks/**: Jupyter Notebooks for different stages of the analysis.
-- **scripts/**: Python scripts for data cleaning, EDA, geospatial analysis, clustering, and visualizations.
-- **results/**: Directory containing the results, including HTML maps and visualizations.
-- **README.md**: This file.
-- **requirements.txt**: List of required Python packages.
-
-## Requirements
-
-To install the required Python packages, use:
-
-```sh
-pip install -r requirements.txt
